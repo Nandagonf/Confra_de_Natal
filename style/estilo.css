@@ -166,13 +166,13 @@ h6 {
 	border-radius: 10px !important;
 }
 
-#containerCertf {
+#containerCertf, #bloco2cont {
 	padding: 0 15% 0 15%;
 
 }
 
 
-#entradaNome {
+#entradaNome, #entradaTalento {
 	text-align: center;
 
 }
@@ -199,7 +199,7 @@ h6 {
 		width: 130px;
 	}
 
-	#containerCertf {
+	#containerCertf, #bloco2cont {
 		padding: 0 10% 0 10%;
 
 	}

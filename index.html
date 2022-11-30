@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -13,8 +13,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas&family=Satisfy&display=swap"
         rel="stylesheet">
 
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="Script/real-time-database.js"></script>
+    <script src="./js/real-time-database.js"></script>
 
     <title>Confraternização de Natal - 2022</title>
 </head>
@@ -45,12 +47,14 @@
 
 
 
+
+
+
             <form>
                 <div id="containerCertf">
                     <input type="text" id="entradaNome" class="form-control input-lg" minlength="8"
-                        placeholder="Digite seu Nome Completo" title="Digite seu nome completo">
+                        placeholder="Digite seu Nome Completo" title="Digite seu nome completo" required>
                 </div>
-
 
 
                 <div class="mt-5 txt-pretoClaro">
@@ -58,12 +62,14 @@
 
                     <div>
                         <div class="mb-2">
-                            <input type="radio" class="form-check-input" id="radioSim" name="radio1" value="SIM">
+                            <input type="radio" class="form-check-input" id="radioSim" name="radio1" value="SIM"
+                                onclick="yes()">
                             <label class="form-check-label" for="radioSim">SIM</label>
                         </div>
 
                         <div>
-                            <input type="radio" class="form-check-input" id="radioNao" name="radio1" value="NAO">
+                            <input type="radio" class="form-check-input" id="radioNao" name="radio1" value="NAO"
+                                onclick="no()">
                             <label class="form-check-label" for="radioNao">NÃO</label>
                         </div>
                     </div>
@@ -71,9 +77,11 @@
 
 
 
+
                 <div class="containerCartao mt-5">
-                    <!-- <div class="text-center " id="resultTabela" style="display: none"> -->
-                    <div class="text-center " id="resultTabela">
+
+                    <div class="text-center" id="bloco2" style="display: none">
+
                         <p class="mb-2 txt-pretoClaro">Sou PAPSA:</p>
 
 
@@ -138,45 +146,57 @@
                                 </table>
                             </div>
                         </div>
+
+
+
+                        <div class="mt-5 mb-2 txt-pretoClaro">
+                            <p class="mb-2 ">Deseja participar do Show de Talentos?</p>
+
+                            <div>
+                                <div class="mb-2">
+                                    <input type="radio" class="form-check-input" id="radioShowSim" name="radio3"
+                                        value="Show:Sim" onclick="yes2()">
+                                    <label class="form-check-label" for="radioShowSim">SIM</label>
+                                </div>
+
+                                <div>
+                                    <input type="radio" class="form-check-input" id="radioShowNao" name="radio3"
+                                        value="Show:Nao" onclick="no2()">
+                                    <label class="form-check-label" for="radioShowNao">NÃO</label>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
 
 
 
-                <div class="mt-5 mb-2 txt-pretoClaro">
-                    <p class="mb-2 ">Deseja participar do Show de Talentos?</p>
-
-                    <div>
-                        <div class="mb-2">
-                            <input type="radio" class="form-check-input" id="radioShowSim" name="radio3"
-                                value="Show:Sim">
-                            <label class="form-check-label" for="radioShowSim">SIM</label>
-                        </div>
-
-                        <div>
-                            <input type="radio" class="form-check-input" id="radioShowNao" name="radio3"
-                                value="Show:Nao">
-                            <label class="form-check-label" for="radioShowNao">NÃO</label>
-                        </div>
-                    </div>
+                <div id="bloco2cont" class="mb-3" style="display: none">
+                    <input type="text" id="entradaTalento" class="form-control input-lg" maxlength="30"
+                        placeholder="Seu talento" title="Digite a Modalidade de seu Talento">
                 </div>
+
+
 
             </form>
 
 
 
-            <button class="btn btn-lg btn-outline-secondary mt-4 mb-5" id="buttConfirmar">
-                <i class="fa fa-search"></i> Confirmar
+            <button class="btn btn-lg btn-outline-success mt-4 mb-5" id="buttConfirmar" onclick="envia()">
+                Confirmar
             </button>
 
-
-
         </div>
-
-
     </div>
 
 
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase.js"></script>
+    <script src="./js/real-time-database.js"></script>
+    <script src="./js/app.js"></script>
     <script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js"></script>
     <script>
         var sf = new Snowflakes({
@@ -185,11 +205,6 @@
             speed: 0.7
         });
     </script>
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase.js"></script>
-    <script src="Script/real-time-database.js"></script>
-    <!-- <script src="js/pesquisa.js"></script> -->
-
 </body>
 
 </html>
