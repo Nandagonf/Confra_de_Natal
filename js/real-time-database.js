@@ -4,56 +4,52 @@ function envia() {
     let entradaNome = document.getElementById('entradaNome').value;
     let radioSim = document.getElementById('radioSim');
     let radioNao = document.getElementById('radioNao');
-    let radioPresencial = document.getElementById('radioPresencial');
-    let radioDigital = document.getElementById('radioDigital');
-    let radioPos = document.getElementById('radioPos');
     let radioShowSim = document.getElementById('radioShowSim');
     let radioShowNao = document.getElementById('radioShowNao');
     let entradaTalento = document.getElementById('entradaTalento').value;
-    let radio1 = document.querySelector('input[name="radio1"]:checked').value;
-    let radio2 = document.querySelector('input[name="radio2"]:checked');
+    let radio1 = document.querySelector('input[name="radio1"]:checked');
     let radio3 = document.querySelector('input[name="radio3"]:checked');
 
 
     if (entradaNome !== "") {
 
+        if (radio1 !== null) {
 
-        if (radio1 === "SIM") {
-            let radio2 = document.querySelector('input[name="radio2"]:checked');
-
-
-            if (radio2 !== null) {
-                let radio3 = document.querySelector('input[name="radio3"]:checked');
-                radio2 = radio2.value;
-
+            if (radio1.value === "SIM") {
 
                 if (radio3 !== null) {
-                    if (radio3.value === "SIM") {
 
+                    if (radio3.value === "SIM") {
 
                         if (entradaTalento !== "") {
                             presente()
                             reset2()
 
 
+
                         } else {
                             return alert("Insira seu Talento!")
                         }
+
                     } else {
                         presente()
                         reset2()
                     }
+
                 } else {
                     return alert("Vai participar do Show de Talentos?")
                 }
+
             } else {
-                return alert("Selecione seu Setor!")
+                faltante()
+                reset()
+                return alert("Escolha Enviada!")
             }
+
         } else {
-            faltante()
-            reset()
-            return alert("Escolha Enviada!")
+            return alert("Selecione uma resposta!")
         }
+
     } else {
         return alert("Insira seu Nome")
     }
@@ -63,7 +59,7 @@ function envia() {
     function faltante(validacao) {
         let dataFalt = {
             NOME: entradaNome,
-            COMPARECE: radioNao.value
+            COMPARECE: radio1.value,
         };
         firebase.database().ref().child('Faltantes').push(dataFalt);
         // console.log(dataFalt)
@@ -74,8 +70,7 @@ function envia() {
     function presente(validacao) {
         let dataPres = {
             NOME: entradaNome,
-            COMPARECE: radioSim.value,
-            PAPSA: radio2.value,
+            COMPARECE: radio1.value,
             SHOW_de_TALENTOS: radio3.value,
             TALENTO: entradaTalento
 
@@ -90,24 +85,14 @@ function envia() {
         document.getElementById('entradaNome').value = '';
         radioSim.checked = false;
         radioNao.checked = false;
-        radioPresencial.checked = false;
-        radioDigital.checked = false;
-        radioPos.checked = false;
-        radioShowSim.checked = false;
-        radioShowNao.checked = false;
-        document.getElementById('entradaTalento').value = '';
     }
 
     function reset2() {
         document.getElementById('entradaNome').value = '';
         radioSim.checked = false;
         radioNao.checked = false;
-        radioPresencial.checked = false;
-        radioDigital.checked = false;
-        radioPos.checked = false;
         radioShowSim.checked = false;
         radioShowNao.checked = false;
-        document.getElementById('entradaTalento').value = '';
         geralNone.style.display = "none";
         topNone.style.display = "none";
         byeBye.style.display = "block";
@@ -133,7 +118,15 @@ function yes() {
 }
 
 function no() {
-    bloco2.style.display = "none";
+    let entradaNome = document.getElementById('entradaNome').value;
+    let radioNao = document.getElementById('radioNao');
+
+    if (entradaNome === "") {
+        radioNao.checked = false;
+        return alert("Insira seu Nome");
+    } else {
+        bloco2.style.display = "none";
+    }  
 }
 
 function yes2() {
