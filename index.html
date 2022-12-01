@@ -25,7 +25,7 @@
 <body>
 
     <div class="bg-vermelhoDegra2">
-        <div class="px-3 shadow mb-3 bg-vermelho">
+        <div class="px-3 shadow mb-3 bg-vermelho" id="topNone">
             <div class="row">
 
                 <div class="col d-flex align-items-center" style="margin-left: 4%;">
@@ -41,9 +41,9 @@
 
 
 
-        <div class="container text-center mt-2">
+        <div class="container text-center mt-2" id="geralNone">
             <h1 class="mt-5 txt-beige font-satisfy">Confraternização de Natal<br>Papsa 2022 </h1>
-            <p class="mt-4 mb-2 txt-pretoClaro">Confirme abaixo sua presença!</p>
+            <p class="mt-4 mb-2 txt-pretoClaro">Confirme abaixo sua presença!<br> Evento dia: 03/12</p>
 
 
 
@@ -99,7 +99,7 @@
                                         <tr class="table-light">
                                             <th class="text-center bordaDw">
                                                 <input type="radio" class="form-check-input" id="radioPresencial"
-                                                    name="radio2" value="Presencial">
+                                                    name="radio2" value="PRESENCIAL">
                                             </th>
                                         </tr>
                                     </tbody>
@@ -119,7 +119,7 @@
                                         <tr class="table-light">
                                             <th class="text-center bordaDw">
                                                 <input type="radio" class="form-check-input" id="radioDigital"
-                                                    name="radio2" value="Digital">
+                                                    name="radio2" value="DIGITAL">
                                             </th>
                                         </tr>
                                     </tbody>
@@ -139,7 +139,7 @@
                                         <tr class="table-light">
                                             <th class="text-center bordaDw">
                                                 <input type="radio" class="form-check-input" id="radioPos" name="radio2"
-                                                    value="Pos">
+                                                    value="POS">
                                             </th>
                                         </tr>
                                     </tbody>
@@ -155,13 +155,13 @@
                             <div>
                                 <div class="mb-2">
                                     <input type="radio" class="form-check-input" id="radioShowSim" name="radio3"
-                                        value="Show:Sim" onclick="yes2()">
+                                        value="SIM" onclick="yes2()">
                                     <label class="form-check-label" for="radioShowSim">SIM</label>
                                 </div>
 
                                 <div>
                                     <input type="radio" class="form-check-input" id="radioShowNao" name="radio3"
-                                        value="Show:Nao" onclick="no2()">
+                                        value="NAO" onclick="no2()">
                                     <label class="form-check-label" for="radioShowNao">NÃO</label>
                                 </div>
                             </div>
@@ -189,6 +189,28 @@
             </button>
 
         </div>
+
+
+        <div style="display: none" id="byeBye">
+            <div class="bg-vermelhoDegra2 text-center">
+                <div class="shadow mb-3 bg-vermelho text">
+                    <div class="align-items-center text-center">
+                        <h3 class="txt-beige font-satisfy" style="padding:5px;">Confraternização de Natal<br>Papsa 2022
+                        </h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container text-center mt-2">
+                <h1 class="mt-5 txt-beige font-satisfy">Save the Date!</h1>
+                <h1 class=" mb-2 txt-beige font-satisfy">03/12</h1>
+                <div class="col-auto mt-3" style="margin-right: 5%;">
+                    <img src="./image/merry-christmas-santa-claus.gif" alt="" width="300" id="logo2">
+                </div>
+                <h1 class="mb-5 txt-red font-satisfy">Esperamos você lá!</h1>
+            </div>
+        </div>
+
     </div>
 
 
